@@ -1,5 +1,19 @@
 <?php
+/**
+ * Class ling\ModelGenerator
+ *
+ * @author     bung <zh.bung@gmail.com>
+ * @copyright  Copyright © 2013 bung.
+ * @license    New BSD License
+ */
+ 
 namespace ling;
+
+/**
+ *
+ * generate a model as php script content.
+ *
+ */
 class ModelGenerator{
 	public $_fields=array();
 	public $_tableName;
@@ -41,7 +55,7 @@ class ModelGenerator{
 	}
 	/**
 	 *
-	 * generate a model as php script content.
+	 * generate a model as php script content then return.
 	 *
 	 * @param string $str 
 	 * @return string 

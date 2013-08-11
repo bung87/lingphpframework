@@ -1,5 +1,14 @@
 <?php
+/**
+ * Class ling\DB
+ *
+ * @author     bung <zh.bung@gmail.com>
+ * @copyright  Copyright © 2013 bung.
+ * @license    New BSD License
+ */
+ 
 namespace ling;
+
 class DB {
 	public $pdo;
 	public static $conf;
@@ -8,15 +17,23 @@ class DB {
 		$attr=array();
 		if(isset($conf['persistent']) && !empty($conf['persistent']))
 			$attr=array(\PDO::ATTR_PERSISTENT => true);
-		$this->pdo = new \PDO($conf['driver'].
+		// try {
+				$this->pdo = new \PDO($conf['driver'].
 			':host='.$conf['host'].
 			';dbname='.$conf['database'],
-			 $conf['user'],
-			  $conf['password'],
-			  $attr
+			$conf['user'],
+			$conf['password'],
+			$attr
 		//a bug of PHP5.3.see here http://stackoverflow.com/questions/2424343/undefined-class-constant-mysql-attr-init-command-with-pdo
 		//array(\PDO::MYSQL_ATTR_INIT_COMMAND , "SET NAMES '".$conf['collate']."';")
-		);
+			);
+				// $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+	/*	} catch (\PDOException $e) {
+			trigger_error("数据库连接不对啊亲",E_USER_ERROR);
+			die();
+		}
+	*/
+
 		if(isset($conf['collate']) && !empty($conf['collate'])) $this->pdo->query("SET NAMES ".$conf['collate']);
 	}
 	/**
@@ -117,6 +134,7 @@ class DB {
 		$filter=array('select','tbl_name');
 		return $this->pbe($model,$opt,$struct,$filter);
 	}
+
 	/**
 	 *
 	 * Count number of records that satisfy the conditions.

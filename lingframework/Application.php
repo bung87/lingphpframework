@@ -1,12 +1,48 @@
 <?php
+/**
+ * Class ling\Application
+ *
+ * @author     bung <zh.bung@gmail.com>
+ * @copyright  Copyright © 2013 bung.
+ * @license    New BSD License
+ */
+
 namespace ling;
+
 define('FRAMEWORK_ROOT', str_replace('\\', '/', __DIR__));
-// define('FRAMEWORK_PARENT', str_replace('fw', '', FRAMEWORK_ROOT));
+
+/**
+ *
+ * class Application
+ *
+ *
+ */
 class Application{
+	/**
+	 * DB instance
+	 * @var ling\DB
+	 */
 	protected static $db;
+	/**
+	 * DSN config
+	 * @var array
+	 */
 	protected static $dbconf;
+	/**
+	 * default controller name.
+	 * @var string
+	 */
 	protected static $defaultController;
+	/**
+	 * table prefix e.g wp_
+	 * @var string
+	 */
 	public static $tablePrefix;
+	/**
+	 * this application all models name,use ling\ModelGenerater for generating.
+	 * location in application root /models.php
+	 * @var array
+	 */
 	public static $modelsName=array();
 	/**
 	 * 

@@ -1,8 +1,30 @@
 <?php
+/**
+ * Class ling\Router
+ *
+ * @author     bung <zh.bung@gmail.com>
+ * @copyright  Copyright © 2013 bung.
+ * @license    New BSD License
+ */
+
 namespace ling;
+
+/**
+ *
+ * Router class
+ *
+ */
 class Router{
+	/**
+     * $_SERVER['REQUEST_URI']
+     * @var string
+     */
 	public $request_uri;
+	/**
+	 * assign $_SERVER['REQUEST_URI'] value to $this->request_uri
+	 */
 	function __construct(){
+
 		$this->request_uri=$_SERVER['REQUEST_URI'];
 	}
 	/**
@@ -51,12 +73,28 @@ class Router{
 			$controllerName=Application::getDefaultController();	
 		}
 		$methodName = !empty($methodName) ? $methodName : $methodName="index";
-		include APPLICATION_ROOT.'/controllers/'.$controllerName.".php";
+		$cf=APPLICATION_ROOT.'/controllers/'.$controllerName.".php";
+		if(file_exists($cf)){
+			include $cf;
+		}else{
+			  header('HTTP/1.1 404 Not Found');
+    		  header("status: 404 Not Found");
+    		   exit;
+		}
+		
 		$controller = new $controllerName();
-		$controller->params=$vars;
-		$controller->before();
-		$controller->$methodName();
-		$controller->after();
+		if(method_exists($controller, $methodName)){
+			$controller->params=$vars;
+			$controller->before();
+			$controller->$methodName();
+			$controller->after();
+		}else{
+			  header('HTTP/1.1 404 Not Found');
+    		  header("status: 404 Not Found");
+    		  exit;
+		}
+		
+		
 	}
 }
 ?>

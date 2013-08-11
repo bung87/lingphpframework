@@ -1,8 +1,34 @@
 <?php
+/**
+ * Class ling\Model
+ *
+ * @author     bung <zh.bung@gmail.com>
+ * @copyright  Copyright © 2013 bung.
+ * @license    New BSD License
+ */
+ 
 namespace ling;
+
+/**
+ *
+ * base Model.
+ *
+ */
 class Model{
+	/**
+     * Associative array of the model properies.
+     * @var array
+     */
 	public $vars=array();
+	/**
+     * Associative array of the model properies.
+     * @var array
+     */
 	public $extraParams=array();
+	/**
+     * initialze the model properies.
+     * @param array Associative array
+     */
 	public function __construct($properties=null){
         if($properties!==null){
             foreach($properties as $k=>$v){
@@ -11,6 +37,10 @@ class Model{
             }
         }
     }
+    /**
+     * quick access DB instance,$this->vars 
+     * @param string model property
+     */
 	public function __get($nm)
    {
 		if ($nm=='db'){return Application::getDB();}
@@ -21,38 +51,46 @@ class Model{
        	return null;
     	}
    }
-
+    /**
+     * Check if the model related table has that field,and set to $this->vars[$nm]
+     * @param string $nm field name
+     * @param mixed $val field value
+     */
    public function __set($nm, $val)
    {
        if (in_array($nm,$this->_fields)) $this->vars[$nm] = $val;
    }
-
+    /**
+     * Check if $this->vars[$field] has been set
+     * @param string $nm field name
+     */
    public function __isset($nm)
    {
        return isset($this->vars[$nm]);
    }
-
+    /**
+     * Unset $this->vars[$field]
+     * @param string $nm field name
+     */
    public function __unset($nm)
    {
        unset($this->vars[$nm]);
    }
-   /*find (line 172)
-Find a record. (Prepares and execute the SELECT statements)
 
-return: A model object or associateve array of the queried result
-access: public
-mixed find ([array $opt = null])
-array $opt: Associative array of options to generate the SELECT statement. Supported: where, limit, select, param, groupby, asc, desc, custom, asArray*/
- /*validate ([string $checkMode = 'all'], [string $requireMode = 'null']) array
- 	public function lastInsertId(){}
- 	public function errorCode(){}
-	public function errorInfo(){}*/
-	/*
-	 *@return this model's
-	*/
+	/**
+	 *@return array model properties
+	 */
 	public function description(){
 		return (object)get_object_vars($this);
 	}
+	/**
+	 *
+	 * find an existing record or records that satisfy the conditions.
+	 *
+	 * if you specified primarykey e.g. $mode->id ,this will only find one record as object.
+	 *
+	 * @return object || array
+	 */
 	public function find(){
 		$pkn=$this->_primaryKey;
 		if(isset($this->vars[$pkn])){
@@ -62,39 +100,72 @@ array $opt: Associative array of options to generate the SELECT statement. Suppo
 			return $this->db->find($this->description())->fetchAll(\PDO::FETCH_OBJ);
 		}
 	}
+
+	/**
+	 *
+	 * find an existing record or records that satisfy the conditions.
+	 *
+	 * if you specified primarykey e.g. $mode->id ,this will only find one record as object.
+	 *
+	 * @return object || array
+	 */
 	public function findObjects(){
 			return $this->db->find($this->description())->fetchAll(\PDO::FETCH_OBJ);
 	}
+	/**
+	 *
+	 * find records as array that satisfy the conditions.
+	 *
+	 * @return array
+	 */
 	public function findArrays(){
 			return $this->db->find($this->description())->fetchAll(\PDO::FETCH_ASSOC);
 	}
+	/**
+	 *
+	 * find first column that satisfy the conditions.
+	 *
+	 * @return array
+	 */
 	public function findColumn(){
 			return $this->db->find($this->description())->fetchAll(\PDO::FETCH_COLUMN,0);
 	}
+	/**
+	 *
+	 * find all column that satisfy the conditions.
+	 *
+	 * @return array
+	 */
 	public function findColumns(){
 			return $this->db->find($this->description())->fetchAll(\PDO::FETCH_COLUMN);
 	}
 	/**
 	 *Note, that you can use PDO::FETCH_COLUMN|PDO::FETCH_GROUP pair only while selecting two columns, not like DB_common::getAssoc(), when grouping is set to true.
-	 *@return Group values by the first column
+	 *@return array Group values by the first column
 	 */
 	public function findGroup(){
 			return $this->db->find($this->description())->fetchAll(\PDO::FETCH_COLUMN | \PDO::FETCH_GROUP);
 	}
+	/**
+	 *
+	 * find an existing record as object
+	 *
+	 * @return object
+	 */
 	public function findObject(){
 		$this->db->find($this->description())->fetchObject();
 	}
 	/**
 	 *
-	 *@param $opt model object ||
-	 *  
+	 * @param array $opt
+	 *
 	 */
 	public function update($opt=null){
 		return	$this->db->update($this->description(),$opt);
 	}
 	/**
 	 * adds a new record and fetch result
-	 * @return inter || false last insert id.
+	 * @return int || false last insert id.
 	 */
 	public function insert(){
 		$result = $this->db->insert($this->description())->fetch(PDO::FETCH_ASSOC);
@@ -105,7 +176,7 @@ array $opt: Associative array of options to generate the SELECT statement. Suppo
 	 *
 	 * Delete an existing record or records that satisfy the conditions.
 	 *
-	 * if you specified primarykey eg. $mode->id ,this will only delete one record.
+	 * if you specified primarykey e.g. $mode->id ,this will only delete one record.
 	 *
 	 * @param object $model 
 	 * @param array $opt 
@@ -114,39 +185,62 @@ array $opt: Associative array of options to generate the SELECT statement. Suppo
 	public function delete($opt=null){
 		return	$this->db->delete($this->description(),$opt);
 	}
-	public function leftJoin($model){
-
-	}
-	/*validate (line 111)
-Validate the Model with the rules defined in getVRules()
-return: Return array of errors if exists. Return null if data passes the validation rules.
-access: public
-array validate ([string $checkMode = 'all'], [string $requireMode = 'null'])
-string $checkMode: Validation mode. all, all_one, skip
-string $requireMode: Require Check Mode. null, nullempty*/
+	/**
+	 * @todo 
+	 *
+	 */
 	public function validate(){}
 	public function count($opt=null){
 			return $this->db->count($this->description(),$opt)->fetchColumn();
 	}
-	//get_by_city
+	/**
+	 * 
+	 * @param string $k ucwords(strtolower($fieldName));
+	 * @param mixed $v field value
+	 * @return see find().
+	 */
 	public function getBy($k,$v){
 		$this->vars[$k] = $v;
 		return $this->find();
 	}
+	/**
+	 * 
+	 * @param string $k ucwords(strtolower($fieldName));
+	 * @param mixed $v field value
+	 * @return see delete().
+	 */
 	public function deleteBy($k,$v){
 		$this->vars[$k] = $v;
 		return $this->delete();
 	}
+	/**
+	 * 
+	 * @param string $k ucwords(strtolower($fieldName));
+	 * @param mixed $v field value
+	 * @return see count().
+	 */
 	public function countBy($k,$v){
 		$this->vars[$k] = $v;
 		return $this->count();
 	}
+	/**
+	 * 
+	 * @param string $k ucwords(strtolower($fieldName));
+	 * @param mixed $v field value
+	 * @return see update().
+	 */
 	public function updateBy($k,$v){
 		$newk='c'.$k;
 		$this->extraParams[$newk] = $v;
 		$opt=array('kv'=>true,'where'=>"$k=:$newk");
 		return	$this->db->update($this->description(),$opt);
 	}
+	/**
+	 * 
+	 * @param string $name ucwords(strtolower($fieldName));
+	 * @param array $arguments field value
+	 * @return see getBy(),updateBy(),countBy()
+	 */
 	function __call($name,$arguments) {
 		$methodPre='';
 		if(strpos($name,'getBy') !==false){
