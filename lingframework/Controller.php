@@ -39,14 +39,14 @@ class Controller{
      * Check if the request is a Ajax request
      * @return bool determined if it is a Ajax request
      */
-   	public function isAjax(){
+   	protected function isAjax(){
         return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest');
     }
     /**
      * Check if the request is a pjax request
      * @return bool determined if it is a pjax request
      */
-    public function isPjax(){
+    protected function isPjax(){
     return array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX'] === 'true';
 	}
 
@@ -54,7 +54,7 @@ class Controller{
      * Check if the connection is a SSL connection
      * @return bool determined if it is a SSL connection
      */
-    public function isSSL(){
+    protected function isSSL(){
         if(!isset($_SERVER['HTTPS']))
             return FALSE;
         //Apache
@@ -79,7 +79,7 @@ class Controller{
      * @param string $cn class name e.g.  'smarty/Smarty'
      * @return void
      */
-    public function loadClass($cn){
+    protected function loadClass($cn){
        require_once APPLICATION_ROOT."/class/".$cn.'.class.php';
     }
     /**
@@ -89,6 +89,6 @@ class Controller{
     /**
      * This will be called after the actual action is executed
      */
-    public function after(){}
+     public function after(){}
 }
 ?>

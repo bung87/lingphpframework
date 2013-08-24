@@ -44,6 +44,7 @@ class Application{
 	 * @var array
 	 */
 	public static $modelsName=array();
+	public static $debug=false;
 	/**
 	 * 
 	 * initialize application.apply models name to $modelName,registe autoload function.
@@ -106,6 +107,19 @@ class Application{
 	public static function tablePrefix(){
 		return self::$tablePrefix;
 	}
+	 public function __set($nm, $val)
+   {
+       if($nm=='debug'){
+       	self::debug($val);
+       }
+   }
+	public static function debug($isDebugMode){
+		if($isDebugMode){
+			self::$debug=true;
+		$debuger=new Debuger();
+		
+		}
+	}
 	/**
 	 *
 	 * for spl_autoload_register use.
@@ -118,6 +132,7 @@ class Application{
 	 * @return void
 	 */
 	public static function load($classname){
+		if(!class_exists($classname)){
 		if(strpos($classname, __namespace__)===0){
 			$classname=str_replace("\\", "/", $classname);
 			$classname= substr($classname, strlen(__namespace__));  
@@ -125,6 +140,7 @@ class Application{
 		}
 		if(in_array($classname, self::$modelsName)){
 			require_once (APPLICATION_ROOT.'/models/'.$classname . ".php");	
+		}
 		}
 	}
 

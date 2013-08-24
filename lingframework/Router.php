@@ -14,7 +14,7 @@ namespace ling;
  * Router class
  *
  */
-class Router{
+class Router {
 	/**
      * $_SERVER['REQUEST_URI']
      * @var string
@@ -89,7 +89,12 @@ class Router{
 		}
 		
 		$controller = new $controllerName();
+
 		if(method_exists($controller, $methodName)){
+			$class_methods = get_class_methods('ling\Controller');
+			if(in_array($methodName, $class_methods)){
+				 exit ('can not execute '.$controllerName.':'.$methodName.' directly.');
+			}
 			$controller->params=array_merge($vars,$_GET);
 			$_GET=&$controller->params;//retrieve $_GET variables
 			$controller->before();
@@ -103,5 +108,7 @@ class Router{
 		
 		
 	}
+
 }
+
 ?>
