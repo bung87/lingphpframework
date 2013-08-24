@@ -85,6 +85,7 @@ class Router{
 		$controller = new $controllerName();
 		if(method_exists($controller, $methodName)){
 			$controller->params=$vars;
+			$_GET=&$controller->params;//retrieve $_GET variables
 			$controller->before();
 			$controller->$methodName();
 			$controller->after();

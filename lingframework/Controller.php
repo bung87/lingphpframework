@@ -16,8 +16,7 @@ namespace ling;
  * base controller.
  *
  * Parameter lists can be accessed through $this->params.
- * If a client sends PUT request to your controller, you can retrieve the values sent through $this->puts
- * GET and POST variables can still be accessed via php $_GET and $_POST. They are not handled/process by Doo framework.
+ * GET  variables can still be accessed via php $_GET 
  *
  */
 class Controller{
