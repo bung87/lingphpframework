@@ -34,13 +34,19 @@ class Router{
 	 * @return string $query
 	 */
 	function getRoute(){
+		if(false!==strpos($this->request_uri,'?')){
+			$pureUrl=substr($this->request_uri,0,strpos($this->request_uri, '?'));
+		}else{
+			$pureUrl=$this->request_uri;
+		}
+		
 		$query="";
 		$pieces=explode("/", APPLICATION_ROOT);
 		foreach ($pieces as $k => $v) {
 				if($v!=""){
-					$pos=strpos($this->request_uri, $v );
+					$pos=strpos($pureUrl, $v );
 					if($pos!==false ){
-						$query = substr($this->request_uri, $pos+strlen($v));
+						$query = substr($pureUrl, $pos+strlen($v));
 					}
 				}
 			}
@@ -84,7 +90,7 @@ class Router{
 		
 		$controller = new $controllerName();
 		if(method_exists($controller, $methodName)){
-			$controller->params=$vars;
+			$controller->params=array_merge($vars,$_GET);
 			$_GET=&$controller->params;//retrieve $_GET variables
 			$controller->before();
 			$controller->$methodName();
