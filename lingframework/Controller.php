@@ -89,6 +89,7 @@ class Controller{
     /**
      * This will be called after the actual action is executed
      */
-     public function after(){}
+    public function after(){}
+    protected function render(){}
 }
 ?>

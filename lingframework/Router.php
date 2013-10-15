@@ -78,7 +78,7 @@ class Router {
 		}else{
 			$controllerName=Application::getDefaultController();	
 		}
-		$methodName = !empty($methodName) ? $methodName : $methodName="index";
+		
 		$cf=APPLICATION_ROOT.'/controllers/'.$controllerName.".php";
 		if(file_exists($cf)){
 			include $cf;
@@ -87,24 +87,44 @@ class Router {
     		  header("status: 404 Not Found");
     		   exit;
 		}
-		
+		// $methodName = !empty($methodName) ? $methodName : $methodName="index";
 		$controller = new $controllerName();
 
-		if(method_exists($controller, $methodName)){
-			$class_methods = get_class_methods('ling\Controller');
-			if(in_array($methodName, $class_methods)){
-				 exit ('can not execute '.$controllerName.':'.$methodName.' directly.');
+		/*if $methodName not empty follow these rule below
+		if $methodName method exists call it directly
+		if index method exists call index method and use the $methodName as first param.
+		otherwise return 404*/
+		if(!empty($methodName)){
+			if( method_exists($controller, $methodName)){
+				$class_methods = get_class_methods('ling\Controller');
+				if(in_array($methodName, $class_methods)){
+					 exit ('can not execute '.$controllerName.':'.$methodName.' directly.');
+				}
+			
+			}else{
+				if(method_exists($controller, 'index')){
+					$arg=$methodName;
+					$methodName='index';
+					$vars[0]=$arg;
+					
+				}else{
+				  header('HTTP/1.1 404 Not Found');
+	    		  header("status: 404 Not Found");
+	    		  exit;
+				}
+			  
 			}
-			$controller->params=array_merge($vars,$_GET);
-			$_GET=&$controller->params;//retrieve $_GET variables
-			$controller->before();
-			$controller->$methodName();
-			$controller->after();
 		}else{
-			  header('HTTP/1.1 404 Not Found');
-    		  header("status: 404 Not Found");
-    		  exit;
+			header('HTTP/1.1 404 Not Found');
+	    	header("status: 404 Not Found");
+	    	exit;
 		}
+	
+		$controller->params=array_merge($vars,$_GET);
+		$_GET=&$controller->params;//retrieve $_GET variables
+		$controller->before();
+		$controller->$methodName();
+		$controller->after();
 		
 		
 	}
