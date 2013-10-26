@@ -91,5 +91,9 @@ class Controller{
      */
     public function after(){}
     protected function render(){}
+    public function redirect($path){
+        if(strpos($path, '/')===0) $path=substr($path, 1);
+        header("Location: ".($this->isSSL() ? 'https' : 'http')."://".$_SERVER['SERVER_NAME']."/$path");
+    }
 }
 ?>

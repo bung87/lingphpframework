@@ -77,6 +77,7 @@ class Router {
 				}
 		}else{
 			$controllerName=Application::getDefaultController();	
+			$methodName='index';
 		}
 		
 		$cf=APPLICATION_ROOT.'/controllers/'.$controllerName.".php";
