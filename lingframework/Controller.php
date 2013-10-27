@@ -20,6 +20,8 @@ namespace ling;
  *
  */
 class Controller{
+    public $controllerName='';
+    public $methodName='';
     /**
      * Associative array of the parameter list found matched in a URI route.
      * @var array
@@ -91,7 +93,7 @@ class Controller{
      */
     public function after(){}
     protected function render(){}
-    public function redirect($path){
+    protected function redirect($path){
         if(strpos($path, '/')===0) $path=substr($path, 1);
         header("Location: ".($this->isSSL() ? 'https' : 'http')."://".$_SERVER['SERVER_NAME']."/$path");
     }

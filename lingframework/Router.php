@@ -69,6 +69,7 @@ class Router {
 		else
 			$controllerName=$first;
 		$vars = array();
+
 		if(!empty($controllerName)){
 		$controllerName=mb_convert_case($controllerName, MB_CASE_TITLE, "UTF-8");
 		$methodName=array_shift($pieces);
@@ -79,7 +80,6 @@ class Router {
 			$controllerName=Application::getDefaultController();	
 			$methodName='index';
 		}
-		
 		$cf=APPLICATION_ROOT.'/controllers/'.$controllerName.".php";
 		if(file_exists($cf)){
 			include $cf;
@@ -96,6 +96,7 @@ class Router {
 		if index method exists call index method and use the $methodName as first param.
 		otherwise return 404*/
 		if(!empty($methodName)){
+
 			if( method_exists($controller, $methodName)){
 				$class_methods = get_class_methods('ling\Controller');
 				if(in_array($methodName, $class_methods)){
@@ -106,7 +107,7 @@ class Router {
 				if(method_exists($controller, 'index')){
 					$arg=$methodName;
 					$methodName='index';
-					$vars[0]=$arg;
+					$vars['primary']=$arg;
 					
 				}else{
 				  header('HTTP/1.1 404 Not Found');
@@ -120,7 +121,8 @@ class Router {
 	    	header("status: 404 Not Found");
 	    	exit;
 		}
-	
+		$controller->controllerName=$controllerName;
+		$controller->methodName=$methodName;
 		$controller->params=array_merge($vars,$_GET);
 		$_GET=&$controller->params;//retrieve $_GET variables
 		$controller->before();
