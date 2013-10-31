@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » \ling\Controller</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">17</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___get" title="__get() :: quik access current DB instance. e.g $this-&gt;db
+you can use parent::__get($name) access this method,if you'd like to override."><span class="description">quik access current DB instance. e.g $this-&gt;db
+you can use parent::__get($name) access this method,if you'd like to override.</span><pre>__get()</pre></a></li>
+<li class="method public "><a href="#method_after" title="after() :: This will be called after the actual action is executed"><span class="description">This will be called after the actual action is executed</span><pre>after()</pre></a></li>
+<li class="method public "><a href="#method_before" title="before() :: This will be called before the actual action is executed"><span class="description">This will be called before the actual action is executed</span><pre>before()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected "><a href="#method_isAjax" title="isAjax() :: Check if the request is a Ajax request"><span class="description">Check if the request is a Ajax request</span><pre>isAjax()</pre></a></li>
+<li class="method protected "><a href="#method_isPjax" title="isPjax() :: Check if the request is a pjax request"><span class="description">Check if the request is a pjax request</span><pre>isPjax()</pre></a></li>
+<li class="method protected "><a href="#method_isSSL" title="isSSL() :: Check if the connection is a SSL connection"><span class="description">Check if the connection is a SSL connection</span><pre>isSSL()</pre></a></li>
+<li class="method protected "><a href="#method_loadClass" title='loadClass() :: load class file form class directory
+file name will be retrieved as "$cn.class.php".'><span class="description">load class file form class directory
+file name will be retrieved as "$cn.class.php".</span><pre>loadClass()</pre></a></li>
+<li class="method protected "><a href="#method_redirect" title="redirect() :: "><span class="description">redirect()
+        </span><pre>redirect()</pre></a></li>
+<li class="method protected "><a href="#method_render" title="render() :: "><span class="description">render()
+        </span><pre>render()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public "><a href="#property_controllerName" title="$controllerName() :: "><span class="description"></span><pre>$controllerName</pre></a></li>
+<li class="property public "><a href="#property_methodName" title="$methodName() :: "><span class="description"></span><pre>$methodName</pre></a></li>
+<li class="property public "><a href="#property_params" title="$params() :: Associative array of the parameter list found matched in a URI route."><span class="description"></span><pre>$params</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\ling\Controller"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/ling.html">ling</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ling.Controller.html">Controller</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">base controller.</p>
+<div class="details">
+<div class="long_description">Parameter lists can be accessed through $this->params.
+GET  variables can still be accessed via php $_GET</div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___get"></a><div class="element clickable method public method___get" data-toggle="collapse" data-target=".method___get .collapse">
+<h2>quik access current DB instance. e.g $this-&gt;db
+you can use parent::__get($name) access this method,if you'd like to override.</h2>
+<pre>__get(string $nm) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$nm</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_after"></a><div class="element clickable method public method_after" data-toggle="collapse" data-target=".method_after .collapse">
+<h2>This will be called after the actual action is executed</h2>
+<pre>after() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_before"></a><div class="element clickable method public method_before" data-toggle="collapse" data-target=".method_before .collapse">
+<h2>This will be called before the actual action is executed</h2>
+<pre>before() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_isAjax"></a><div class="element clickable method protected method_isAjax" data-toggle="collapse" data-target=".method_isAjax .collapse">
+<h2>Check if the request is a Ajax request</h2>
+<pre>isAjax() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>determined if it is a Ajax request</div>
+</div></div>
+</div>
+<a id="method_isPjax"></a><div class="element clickable method protected method_isPjax" data-toggle="collapse" data-target=".method_isPjax .collapse">
+<h2>Check if the request is a pjax request</h2>
+<pre>isPjax() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>determined if it is a pjax request</div>
+</div></div>
+</div>
+<a id="method_isSSL"></a><div class="element clickable method protected method_isSSL" data-toggle="collapse" data-target=".method_isSSL .collapse">
+<h2>Check if the connection is a SSL connection</h2>
+<pre>isSSL() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>determined if it is a SSL connection</div>
+</div></div>
+</div>
+<a id="method_loadClass"></a><div class="element clickable method protected method_loadClass" data-toggle="collapse" data-target=".method_loadClass .collapse">
+<h2>load class file form class directory
+file name will be retrieved as "$cn.class.php".</h2>
+<pre>loadClass(string $cn) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$cn</h4>
+<code>string</code><p>class name e.g.  'smarty/Smarty'</p>
+</div>
+</div></div>
+</div>
+<a id="method_redirect"></a><div class="element clickable method protected method_redirect" data-toggle="collapse" data-target=".method_redirect .collapse">
+<h2>redirect()
+        </h2>
+<pre>redirect($path) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$path</h4></div>
+</div></div>
+</div>
+<a id="method_render"></a><div class="element clickable method protected method_render" data-toggle="collapse" data-target=".method_render .collapse">
+<h2>render()
+        </h2>
+<pre>render() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_controllerName"> </a><div class="element clickable property public property_controllerName" data-toggle="collapse" data-target=".property_controllerName .collapse">
+<h2>$controllerName</h2>
+<pre>$controllerName </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_methodName"> </a><div class="element clickable property public property_methodName" data-toggle="collapse" data-target=".property_methodName .collapse">
+<h2>$methodName</h2>
+<pre>$methodName </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_params"> </a><div class="element clickable property public property_params" data-toggle="collapse" data-target=".property_params .collapse">
+<h2>Associative array of the parameter list found matched in a URI route.</h2>
+<pre>$params : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.1.0
+</a> and<br>
+            generated on 2013-10-31T14:38:37+08:00.<br></footer></div>
+</div>
+</body>
+</html>

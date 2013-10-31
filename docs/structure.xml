@@ -1,0 +1,1686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.1.0&#10;">
+  <partials/>
+  <file path="Application.php" generated-path="Application.html" hash="02048466fa2f4d4a178032c11d4d1038" package="Default">
+    <docblock line="0">
+      <description>Class ling\Application</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <constant namespace="" line="12" package="Default">
+      <name>FRAMEWORK_ROOT</name>
+      <full_name>\\FRAMEWORK_ROOT</full_name>
+      <value>str_replace('\\', '/', __DIR__)</value>
+      <docblock line="12">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </constant>
+    <class final="false" abstract="false" namespace="ling" line="20" package="Default">
+      <extends/>
+      <name>Application</name>
+      <full_name>\ling\Application</full_name>
+      <docblock line="20">
+        <description>class Application</description>
+        <long-description></long-description>
+      </docblock>
+      <property static="true" visibility="protected" line="25" namespace="ling" package="Default">
+        <name>$db</name>
+        <default></default>
+        <docblock line="25">
+          <description>DB instance</description>
+          <long-description></long-description>
+          <tag name="var" line="25" description="" type="\ling\ling\DB" variable="">
+            <type link="DB.html">\ling\ling\DB</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="protected" line="30" namespace="ling" package="Default">
+        <name>$dbconf</name>
+        <default></default>
+        <docblock line="30">
+          <description>DSN config</description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="protected" line="35" namespace="ling" package="Default">
+        <name>$defaultController</name>
+        <default></default>
+        <docblock line="35">
+          <description>default controller name.</description>
+          <long-description></long-description>
+          <tag name="var" line="35" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="40" namespace="ling" package="Default">
+        <name>$tablePrefix</name>
+        <default></default>
+        <docblock line="40">
+          <description>table prefix e.g wp_</description>
+          <long-description></long-description>
+          <tag name="var" line="40" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="46" namespace="ling" package="Default">
+        <name>$modelsName</name>
+        <default>array()</default>
+        <docblock line="46">
+          <description>this application all models name,use ling\ModelGenerater for generating.</description>
+          <long-description>location in application root /models.php</long-description>
+          <tag name="var" line="46" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="47" namespace="ling" package="Default">
+        <name>$debug</name>
+        <default>false</default>
+        <docblock line="47">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="53" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\Application::__construct()</full_name>
+        <docblock line="53">
+          <description>initialize application.apply models name to $modelName,registe autoload function.</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="64" package="Default">
+        <name>run</name>
+        <full_name>\ling\Application::run()</full_name>
+        <docblock line="64">
+          <description>run application.</description>
+          <long-description></long-description>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="75" package="Default">
+        <name>setDB</name>
+        <full_name>\ling\Application::setDB()</full_name>
+        <docblock line="75">
+          <description>set the database info before application run.</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;database settings.&lt;/p&gt;" type="array" variable="">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="75" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$conf</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="86" package="Default">
+        <name>setDefaultController</name>
+        <full_name>\ling\Application::setDefaultController()</full_name>
+        <docblock line="86">
+          <description>set the default controller name</description>
+          <long-description></long-description>
+          <tag name="param" line="86" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="86" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$dfc</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="92" package="Default">
+        <name>getDefaultController</name>
+        <full_name>\ling\Application::getDefaultController()</full_name>
+        <docblock line="92">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="92" description="the name of default controller" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="98" package="Default">
+        <name>getDB</name>
+        <full_name>\ling\Application::getDB()</full_name>
+        <docblock line="98">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="98" description="an instance of DB" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="107" package="Default">
+        <name>tablePrefix</name>
+        <full_name>\ling\Application::tablePrefix()</full_name>
+        <docblock line="107">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="107" description="default tableprefix value." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="110" package="Default">
+        <name>__set</name>
+        <full_name>\ling\Application::__set()</full_name>
+        <docblock line="110">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$nm</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$val</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="116" package="Default">
+        <name>debug</name>
+        <full_name>\ling\Application::debug()</full_name>
+        <docblock line="116">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$isDebugMode</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="134" package="Default">
+        <name>load</name>
+        <full_name>\ling\Application::load()</full_name>
+        <docblock line="134">
+          <description>for spl_autoload_register use.</description>
+          <long-description>if the class name contains this framework namespace will load from framework root diretory,
+if the class name can be found in APPLICATION_ROOT.'/'.models.php will load from models,
+otherwise do nothing.</long-description>
+          <tag name="param" line="134" description="" type="string" variable="$classname">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="134" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$classname</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJydVs1u4zYQPtuA32FqGLAcuPK2vcWrbPzTFkGzSeAs0ENdCLRE2WxpUqWoeLOLPFBfo0/WISnLkmwnaHUQpCFn5puZjzN8/yHdpJ326OKi04YLmHGSZcCZWC8nacpZRDSTwizZ5WuS641UYJ5VLtbw/svGNx/X6y1h3I/k9sptjGT6rNh6owFm5ec/f8P37777war6bh+6oCKjxuAd3cH0cQ63TmTWR512py3IlmYpiajFNTaimCZMUK//02Ly8cdf7xe/hIv7+0/9IWRahYqmHHd7/eUSJf0RvsJwfrMIw8HAahfBWgCRDfhErIX7o/WvnXbLGmih9nwKTGSaiIg6wfUTUS5986mVoIlWqqSmkaYxwkMbEfTi1bhm5vEOIikStq5YIUqR51dtGJWaHUwLybk2trSSnFMFJnl+xSomCNG9ZtbZmJUmah40WXEKqcL8fwbqr2GXhq9Yz1eYttK0VX6wunWjG5YBOaQYCOewlTHlmcU/zDNX++VHI/yZCqqIxuASpOLa/THLKGONy8IKEzWjSkoNI2fWt6Q/l+o6aqdxhzgCu88zJGpuiukqXwcJ4RmthebeTDDNCGdfaBWRb76fq4GCloU/426o6JplGnVyLbkkMSS5iKymNVsC3ouR5lh5rEEeaW9giNrKKE8uL6sxKPpXzhQNJXLWmzw83N7MJp9u7u/sCfK7lQR1baCtLOXhHkFIP2s8m+gr87rn9hSwlReGs9vJ42MY+t3LS7Pkdr8cJ0jltVpV4oNrRXWuBDxJFjdLVAaO+kXAPSVzQ40ABLaThf1xFdsvfXulpXcOSEY10pFCTJCsBGnHRCJhRZFptM6mvI4yJYpsHZEOymjNEDPz3w6lIFIZEarOp17PHPFaJd2pD3r7s7+XV86WW/ytXxH1f2/G2wj3dOM4DtAdcPh/8TQ7i9eLk6geXXNLYLYc1WrvuEBjIrDHRyanInkL2voUNAdr7+cMurPA5OoP7KpARDkeDLbqSDgPZVr4ZolX1jwIRM65kx+YEBiK4/4aNRzXX06gX72Vx33uLHGKHv9EeF4MkFdwV6h2MnONzm9AQPMMhyFyxOuJ7RB66HWAAxjgq32bB9OBa0HQt622PzisFAmxcs+qjsu1F/v1ch55ocWyufkw86XM/rHwQFPT7bHPUtdY7D+S1dbDfRc9Z1+L46NnZtfJtgk47aqthSWW4O4iYmluuE2QWG5wJngu6U6qP+FwUdoxnKBuZCi5rWyxQzDG/q+leh6edYDEXVGEmIvYjNGjMYGXKv8wKJru3EphXaJttWPYDWMJAv/KSX2qsfQsCgviv/cYg8A7WCgL+Y0V4ezC/GbVDYeDplUqq0vmylimEy+OQRC8Kzhw2BRUb5vd5bI7hO4IXxUP46YKZPkK1Wqu8J9T4dU9DsYAVrk6sMGr33j9Sr582E/kknUmNCZCd22peWxeC4pUNJydqLtTwfK/4bkgfadtXx+u/gXVmLg9</source>
+  </file>
+  <file path="Controller.php" generated-path="Controller.html" hash="ae495b2d4db35b93079b086dfa9930a3" package="Default">
+    <docblock line="0">
+      <description>Class ling\Controller</description>
+      <long-description>Base class of all controller.</long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="22" package="Default">
+      <extends/>
+      <name>Controller</name>
+      <full_name>\ling\Controller</full_name>
+      <docblock line="22">
+        <description>base controller.</description>
+        <long-description>Parameter lists can be accessed through $this-&gt;params.
+GET  variables can still be accessed via php $_GET</long-description>
+      </docblock>
+      <property static="false" visibility="public" line="23" namespace="ling" package="Default">
+        <name>$controllerName</name>
+        <default>''</default>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="24" namespace="ling" package="Default">
+        <name>$methodName</name>
+        <default>''</default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="29" namespace="ling" package="Default">
+        <name>$params</name>
+        <default>array()</default>
+        <docblock line="29">
+          <description>Associative array of the parameter list found matched in a URI route.</description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="36" package="Default">
+        <name>__get</name>
+        <full_name>\ling\Controller::__get()</full_name>
+        <docblock line="36">
+          <description>quik access current DB instance. e.g $this-&gt;db
+you can use parent::__get($name) access this method,if you'd like to override.</description>
+          <long-description></long-description>
+          <tag name="param" line="36" description="" type="string" variable="$nm">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="36" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$nm</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="ling" line="44" package="Default">
+        <name>isAjax</name>
+        <full_name>\ling\Controller::isAjax()</full_name>
+        <docblock line="44">
+          <description>Check if the request is a Ajax request</description>
+          <long-description></long-description>
+          <tag name="return" line="44" description="determined if it is a Ajax request" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="ling" line="51" package="Default">
+        <name>isPjax</name>
+        <full_name>\ling\Controller::isPjax()</full_name>
+        <docblock line="51">
+          <description>Check if the request is a pjax request</description>
+          <long-description></long-description>
+          <tag name="return" line="51" description="determined if it is a pjax request" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="ling" line="59" package="Default">
+        <name>isSSL</name>
+        <full_name>\ling\Controller::isSSL()</full_name>
+        <docblock line="59">
+          <description>Check if the connection is a SSL connection</description>
+          <long-description></long-description>
+          <tag name="return" line="59" description="determined if it is a SSL connection" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="ling" line="84" package="Default">
+        <name>loadClass</name>
+        <full_name>\ling\Controller::loadClass()</full_name>
+        <docblock line="84">
+          <description>load class file form class directory
+file name will be retrieved as "$cn.class.php".</description>
+          <long-description></long-description>
+          <tag name="param" line="84" description="&lt;p&gt;class name e.g.  'smarty/Smarty'&lt;/p&gt;&#10;" type="string" variable="$cn">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="84" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$cn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="90" package="Default">
+        <name>before</name>
+        <full_name>\ling\Controller::before()</full_name>
+        <docblock line="90">
+          <description>This will be called before the actual action is executed</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="94" package="Default">
+        <name>after</name>
+        <full_name>\ling\Controller::after()</full_name>
+        <docblock line="94">
+          <description>This will be called after the actual action is executed</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="ling" line="95" package="Default">
+        <name>render</name>
+        <full_name>\ling\Controller::render()</full_name>
+        <docblock line="95">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="ling" line="96" package="Default">
+        <name>redirect</name>
+        <full_name>\ling\Controller::redirect()</full_name>
+        <docblock line="96">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$path</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <source>eJylVutO40YU/g0S73AaRTsxovbS3V9hAwRIu6lSSJPQrtQia2JP4llsj3dmHKCIB+pr9Ml6ZmwngbiwbEcIO3Pu37n5w1EWZTvb3u7uzjbswmlMlYKYp/M/T0WqpYhjJg3FUk+oYhBYFjEDGscQLJncJdcxzXUkJJgzzdM5fPgrcs3L8TyhPHYDkRwWjIHI7iSfRxrgdPn6z9/ww9v9d1bULfhiHrAUTeM5ZzdwMj6DQXFl6B7+29lOacJURgNmvT/Y2V4GZXVMres13g6pREnNJMoprSCgKUwZ0CBgSrEQdCRFPo+gqSOuvj/MDLsq/PqpNwFYUMnpNGaFpNIcUVmXX3AKCDE0fcNemUWfCxxXKN/jPZ4sn2K40Fz5eo7+dQg5eExHnyMRPqYVAZuzC12lRMCp5gt0Rkp6Z1KmIwbZo4BhJvI0hITqIEJveQoULkd9wKA1c5fajjHMQk11hRFsVb4UoHQsveXUOPMl59clJBDkUrJUw9kJWlOapgFzgbnzCuFwuhS7E7lFNVfWbZRqt31/znSradLtVCqNIBSA7PGZESMhRnfNQAsQCyYlD9eDsf5iriRWCjTTBFYkyXQuU0j4LQtrQp3laaC5SKFyI3Es11aRva0tNG9uOx0STolzX6rrZhlKUyPZbqPg2QnC9FCIPGzCdRqx4Bp4kS/JvuQME4UhUuh+prfVzYbTUyFiCE1qE56aZM6APyPnFfYzKTQLNPIvg+PK8LecsiTNKU20OBY1xu2Pe6PfeqM/yMfJZOh/8ke9Xy9740nvzP+9P/lIrhx488YArEUsbpj8GoFOpwPkNokjrbPSU1LV0qswyr4Rozo5r2y6OoyG6xiV6m0L+Nfszme3Zpy0qniHP3c/kT2ocLD4bIBima4KJLTMmelrUx8vRI+jImWVVxjIeDxYu3sNBPWSz4GAEo/qhM9a39XVyBhT7KzY1iD7sTsY9w5WJM/r4hiP2COdG8osSPsO3NfqnIwu11U+rGvv98ernyxWzLZsrX4iUvItJgRmRYJiEkePes5Y8fSHF6OJNQnv379zXmuvBsfNfllWQSxoWO7wGY8Zzn+ZlL9DLjG/Qi5nfMFhRi3clHsNjUnOFlgEVEGjGaSulXVxxTXcDWNPJm2QlpasSpz5LgBRCZX6zhvbB9mo1oXg4cuFaKKy3y4tNLKGoGlnjMoXuGWgOxwO+qfdSf/i3B9dXEzchmfd8RquCYSsQiH/PXcmZtdUaAT4DYRuTBmiyGwv0kDnNDaPsh3ZLQtwlW7E8GSfFCqwlb7SJJ2ZDf5/LFoNK4M1oOLCDV9kKYqmhd8AOnoyCDDtmVAFaQ+IRxxsqrcO2IuOyqfIUFH3nbXijhg1hhsDUe5MaLit8vOgHDlwBMRsCkWgXbwRx220PZPLp+113v2lR64w29ZWY22p4N/R4b9vNB/+</source>
+  </file>
+  <file path="DB.php" generated-path="DB.html" hash="e3e976318c9136adb921d03f6671df41" package="Default">
+    <docblock line="0">
+      <description>Class ling\DB</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="12" package="Default">
+      <extends/>
+      <name>DB</name>
+      <full_name>\ling\DB</full_name>
+      <docblock line="12">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="public" line="13" namespace="ling" package="Default">
+        <name>$pdo</name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" line="14" namespace="ling" package="Default">
+        <name>$conf</name>
+        <default></default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="15" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\DB::__construct()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$conf</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="51" package="Default">
+        <name>pbe</name>
+        <full_name>\ling\DB::pbe()</full_name>
+        <docblock line="51">
+          <description>builds sql,prepares,bind each params to PDO statement and execute.</description>
+          <long-description>builds sql statement based on $model,$opt,$struct and $filter,prepares the sql statement,
+bind each model's params to PDO statment and execute.</long-description>
+          <tag name="param" line="51" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="51" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="51" description="&lt;p&gt;sql statement struct&lt;/p&gt;" type="array" variable="$struct">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="51" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0">
+          <name>$opt</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$struct</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$filter</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="72" package="Default">
+        <name>update</name>
+        <full_name>\ling\DB::update()</full_name>
+        <docblock line="72">
+          <description>Update an existing record or records that satisfy the conditions.</description>
+          <long-description>if you specified primarykey eg. $mode-&gt;id ,this will only update one record.</long-description>
+          <tag name="param" line="72" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="72" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="72" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0">
+          <name>$opt</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="93" package="Default">
+        <name>dataType</name>
+        <full_name>\ling\DB::dataType()</full_name>
+        <docblock line="93">
+          <description>Detecte data type for the parameter using the PDO::PARAM_* constants.</description>
+          <long-description></long-description>
+          <tag name="param" line="93" description="" type="string" variable="$value">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="93" description="$type" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$value</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="113" package="Default">
+        <name>bindParams</name>
+        <full_name>\ling\DB::bindParams()</full_name>
+        <docblock line="113">
+          <description>Binds a PHP variable to a corresponding named omark placeholder in the SQL statement.</description>
+          <long-description></long-description>
+          <tag name="param" line="113" description="" type="string" variable="$value">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="113" description="$type" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$v</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$smt</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="126" package="Default">
+        <name>find</name>
+        <full_name>\ling\DB::find()</full_name>
+        <docblock line="126">
+          <description>Find an existing record or records that satisfy the conditions.</description>
+          <long-description>if you specified primarykey eg. $mode-&gt;id ,this will only return one record as object</long-description>
+          <tag name="param" line="126" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="126" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="126" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0">
+          <name>$opt</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="146" package="Default">
+        <name>count</name>
+        <full_name>\ling\DB::count()</full_name>
+        <docblock line="146">
+          <description>Count number of records that satisfy the conditions.</description>
+          <long-description></long-description>
+          <tag name="param" line="146" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="146" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="146" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0">
+          <name>$opt</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="164" package="Default">
+        <name>insert</name>
+        <full_name>\ling\DB::insert()</full_name>
+        <docblock line="164">
+          <description>Adds a new record.</description>
+          <long-description></long-description>
+          <tag name="param" line="164" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="return" line="164" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="185" package="Default">
+        <name>delete</name>
+        <full_name>\ling\DB::delete()</full_name>
+        <docblock line="185">
+          <description>Delete an existing record or records that satisfy the conditions.</description>
+          <long-description>if you specified primarykey eg. $mode-&gt;id ,this will only delete one record.</long-description>
+          <tag name="param" line="185" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="185" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="185" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0">
+          <name>$opt</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="204" package="Default">
+        <name>__call</name>
+        <full_name>\ling\DB::__call()</full_name>
+        <docblock line="204">
+          <description>Interacting with methods that have not been declared or are not visible in the current scope</description>
+          <long-description></long-description>
+          <tag name="param" line="204" description="&lt;p&gt;method name of PDO&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="204" description="&lt;p&gt;arguments apply to $this-&gt;pdo .&lt;/p&gt;&#10;" type="array" variable="$arguments">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$arguments</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <source>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</source>
+  </file>
+  <file path="Debuger.php" generated-path="Debuger.html" hash="34434c34042fd5245bc6d674de82a174" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="4" package="Default">
+      <extends/>
+      <name>Debuger</name>
+      <full_name>\ling\Debuger</full_name>
+      <docblock line="4">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="5" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\Debuger::__construct()</full_name>
+        <docblock line="5">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="12" package="Default">
+        <name>exceptionHandler</name>
+        <full_name>\ling\Debuger::exceptionHandler()</full_name>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$e</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="34" package="Default">
+        <name>getTrimedFilePath</name>
+        <full_name>\ling\Debuger::getTrimedFilePath()</full_name>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$errfile</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="ling" line="40" package="Default">
+        <name>getFakeFrameWorkNamespace</name>
+        <full_name>\ling\Debuger::getFakeFrameWorkNamespace()</full_name>
+        <docblock line="40">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$func</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="47" package="Default">
+        <name>errorHandler</name>
+        <full_name>\ling\Debuger::errorHandler()</full_name>
+        <docblock line="47">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$errno</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$errstr</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$errfile</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$errline</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$errcontext</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="95" package="Default">
+        <name>shutdown</name>
+        <full_name>\ling\Debuger::shutdown()</full_name>
+        <docblock line="95">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="112" package="Default">
+        <name>errorBacktrace</name>
+        <full_name>\ling\Debuger::errorBacktrace()</full_name>
+        <docblock line="112">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="4" code="PPC:ERR-50005">No summary for class \ling\Debuger</error>
+      <error line="5" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="12" code="PPC:ERR-50015">Argument $e is missing from the Docblock of exceptionHandler()</error>
+      <error line="12" code="PPC:ERR-50008">No summary for method exceptionHandler()</error>
+      <error line="34" code="PPC:ERR-50015">Argument $errfile is missing from the Docblock of getTrimedFilePath()</error>
+      <error line="34" code="PPC:ERR-50008">No summary for method getTrimedFilePath()</error>
+      <error line="40" code="PPC:ERR-50015">Argument $func is missing from the Docblock of getFakeFrameWorkNamespace()</error>
+      <error line="40" code="PPC:ERR-50008">No summary for method getFakeFrameWorkNamespace()</error>
+      <error line="47" code="PPC:ERR-50015">Argument $errno is missing from the Docblock of errorHandler()</error>
+      <error line="47" code="PPC:ERR-50015">Argument $errstr is missing from the Docblock of errorHandler()</error>
+      <error line="47" code="PPC:ERR-50015">Argument $errfile is missing from the Docblock of errorHandler()</error>
+      <error line="47" code="PPC:ERR-50015">Argument $errline is missing from the Docblock of errorHandler()</error>
+      <error line="47" code="PPC:ERR-50015">Argument $errcontext is missing from the Docblock of errorHandler()</error>
+      <error line="47" code="PPC:ERR-50008">No summary for method errorHandler()</error>
+      <error line="95" code="PPC:ERR-50008">No summary for method shutdown()</error>
+      <error line="112" code="PPC:ERR-50008">No summary for method errorBacktrace()</error>
+    </parse_markers>
+    <source>eJy9V21v2zYQ/pwA+Q+EakDS6lQphvaDbSlIHWcN0MSGk64fmk6QJcriLFMCSTcx1v73Hd9k2bG3dQMWBBDJe3nujne88+C8LuqTY5osMa+TFKOS0Hn/5PjkOC0TztElnq3mmP1xcnyUr2gqSEVRHKcV5YKtUuH5knJEKIk5Fp5biGUZY8Yqxt0uOvP7kgoUfRYXCc1KzLyEsWTtdURBeNdVpPea4votkacU1xLwgJgl74gyPCdcYBbzYiWy6pHG1vBteUs2ct+lz42Lu8q9DlaekhxWiID3CU1xlaOHyeV4ZJl1MJT+06jtFgidRnMshlWGPb+LzPYGc57M2ydXpGxvPxAKW2vfHvS7ZcLEelgtaxBk/5sh2hbC5Z1LDsEgdXyLKjdhc6wuRXHHNv4t7qOjvGI4SQtkzlHCUWeBwgh1vvpI8+x15OtnV6xr7H4BI2G91C7YbQ722zWkNKx1dnzfeHBkbx0W6luvZiVJEURXwKfJBXD/npElzmRMJokowGXGJIByoVMxMqdJac5CKIyY4boEXzz34QHKwA1cGUgjI83o7GO+mEw+XA8v7q/Ht/F0PL7vOk53R7kShn+GxYrRRmdfOXDY/Ktkga8YlPinii1ubal7HcmjfaA8jOPmEYhjZWQiy4jwReg4W3uuzK6TzGuOugDLSkw90OR33Z9c7Wa+FzhENRRp47fz7bfgHOS+ORClBgPW0rzua6XJOrxfofZ/U7zbCc8YrXT8wcbNReiVzA29gjdN4CcR0lVZqqBUszgtcUI97cuPX7OUEluZEyKTyntyas9Nd1Io01Bu95Ol8aH1Qp3A5TNVrKEinr7R2UazzdnLN9o0nBYVcgfyxY4GBU6yaADkBSoYzkOnEKLuBUFZpUlZVFwEsi9Aq8hl8B8h+MG8quYlPpUmnsJ9CkHydWAXr1LOHSTrM3RkVAO1Z7gMHS7WJeYFxsJBQTTgKSO1QJyl/x30d+5Eg0BrhIVyyu1bX53BrMrWSOGHD05alRXrvcjzvD9L0sWcVSua9V6cnZ09OJFK+CBAShAuK33MdBog/kiEeq1UXqkXCsFfmnCMRvFoOh1Pe/roCFkFgBzdrC15EMwi9FnLf7F5OZgxiMYDlcBKWH/k3wzex4W6sxbQp4vp7fXtL70N2w6YYfhHYAdRbsf318PRYRBN/5cYGc6TVSn2af9IFxRas65klUa9HwKQ6+/yY0iNzVeJSEqtdq/VLXVaBhbwosi6aZ4LaMBI1iDaKe5GEqow3FSiyhpjwLlNVaWRrpZcMp5HAzhHauCCxFQ865oRKho2m5IqNaBjQv6RNgbqEDRAttDl9uVLyE2kGjKhGX4KO+T0tenFyLZuWUefNf2L70uiMlS+CbzGKUnKtEgY32G0U0ArG2QNRvpG0OT9BOL2Sn7jX0fTO+hnsHOQZw/Hd3LvP7vAtq5NMFu9/x3UqRoSVC1uycjSto9JpCM4kREEzvaLIB87RzdR40TTNew8qEZahUz4SOVfiPKk5NhAyvB1sCHosRYeiBguD8CsrPzTL4XhtcNKm+HAu7FDGo6nf0O/mVx/+EuWj3ej6V76jpsw0uP+c452VTWV1XzkUGpU6JEuCFTuxsy47vfxExH9wxNpOz66g8p9e6AzR81QZ/abwc7Y82wKaGWMfanNmBkiNY1CD/+KGcdeJn/oxLMNv1Vr+mRVqlaiNGT6R9ENFkWVhfL2Ve3GS3XA9S8MK2/m2/Z4SwRe2kRQozG1o7GkgJ/GB+XrFpjvIzmnELp1UcbEkkAF1Ak1Lc52uJ8v3r4dDp3IhaqzhW9wVDx9dI44LvNeb89Uss3YA5SVeZvlWeT6oNSFCgNYABesovMd+MtLaKlnTuQ9xzf3B/hbB1sw8sjA+ICjECJI7FLOBmifvxLu3Tvlb+PWoQl4N94+kkCebz2CCaS5dpvwJtqBygh5oPIO/s+jPwHF5J/y</source>
+  </file>
+  <file path="Model.php" generated-path="Model.html" hash="a5c37c1997c8d652c6aedfcf3419e89a" package="Default">
+    <docblock line="0">
+      <description>Class ling\Model</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="17" package="Default">
+      <extends/>
+      <name>Model</name>
+      <full_name>\ling\Model</full_name>
+      <docblock line="17">
+        <description>base Model.</description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="public" line="22" namespace="ling" package="Default">
+        <name>$vars</name>
+        <default>array()</default>
+        <docblock line="22">
+          <description>Associative array of the model properies.</description>
+          <long-description></long-description>
+          <tag name="var" line="22" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="27" namespace="ling" package="Default">
+        <name>$extraParams</name>
+        <default>array()</default>
+        <docblock line="27">
+          <description>Associative array of the model properies.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="32" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\Model::__construct()</full_name>
+        <docblock line="32">
+          <description>initialze the model properies.</description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="&lt;p&gt;Associative array&lt;/p&gt;" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$properties</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="44" package="Default">
+        <name>__get</name>
+        <full_name>\ling\Model::__get()</full_name>
+        <docblock line="44">
+          <description>quick access DB instance,$this-&gt;vars</description>
+          <long-description></long-description>
+          <tag name="param" line="44" description="&lt;p&gt;model property&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$nm</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="59" package="Default">
+        <name>__set</name>
+        <full_name>\ling\Model::__set()</full_name>
+        <docblock line="59">
+          <description>Check if the model related table has that field,and set to $this-&gt;vars[$nm]</description>
+          <long-description></long-description>
+          <tag name="param" line="59" description="&lt;p&gt;field name&lt;/p&gt;" type="string" variable="$nm">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="59" description="&lt;p&gt;field value&lt;/p&gt;" type="mixed" variable="$val">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$nm</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$val</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="67" package="Default">
+        <name>__isset</name>
+        <full_name>\ling\Model::__isset()</full_name>
+        <docblock line="67">
+          <description>Check if $this-&gt;vars[$field] has been set</description>
+          <long-description></long-description>
+          <tag name="param" line="67" description="&lt;p&gt;field name&lt;/p&gt;" type="string" variable="$nm">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$nm</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="75" package="Default">
+        <name>__unset</name>
+        <full_name>\ling\Model::__unset()</full_name>
+        <docblock line="75">
+          <description>Unset $this-&gt;vars[$field]</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;field name&lt;/p&gt;" type="string" variable="$nm">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$nm</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="83" package="Default">
+        <name>description</name>
+        <full_name>\ling\Model::description()</full_name>
+        <docblock line="83">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="83" description="model properties" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="94" package="Default">
+        <name>find</name>
+        <full_name>\ling\Model::find()</full_name>
+        <docblock line="94">
+          <description>find an existing record or records that satisfy the conditions.</description>
+          <long-description>if you specified primarykey e.g. $mode-&gt;id ,this will only find one record as object.</long-description>
+          <tag name="return" line="94" description="|| array" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="112" package="Default">
+        <name>findObjects</name>
+        <full_name>\ling\Model::findObjects()</full_name>
+        <docblock line="112">
+          <description>find an existing record or records that satisfy the conditions.</description>
+          <long-description>if you specified primarykey e.g. $mode-&gt;id ,this will only find one record as object.</long-description>
+          <tag name="return" line="112" description="|| array" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="121" package="Default">
+        <name>findArrays</name>
+        <full_name>\ling\Model::findArrays()</full_name>
+        <docblock line="121">
+          <description>find records as array that satisfy the conditions.</description>
+          <long-description></long-description>
+          <tag name="return" line="121" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="130" package="Default">
+        <name>findColumn</name>
+        <full_name>\ling\Model::findColumn()</full_name>
+        <docblock line="130">
+          <description>find first column that satisfy the conditions.</description>
+          <long-description></long-description>
+          <tag name="return" line="130" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="139" package="Default">
+        <name>findColumns</name>
+        <full_name>\ling\Model::findColumns()</full_name>
+        <docblock line="139">
+          <description>find all column that satisfy the conditions.</description>
+          <long-description></long-description>
+          <tag name="return" line="139" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="146" package="Default">
+        <name>findGroup</name>
+        <full_name>\ling\Model::findGroup()</full_name>
+        <docblock line="146">
+          <description>Note, that you can use PDO::FETCH_COLUMN|PDO::FETCH_GROUP pair only while selecting two columns, not like DB_common::getAssoc(), when grouping is set to true.</description>
+          <long-description></long-description>
+          <tag name="return" line="146" description="Group values by the first column" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="155" package="Default">
+        <name>findObject</name>
+        <full_name>\ling\Model::findObject()</full_name>
+        <docblock line="155">
+          <description>find an existing record as object</description>
+          <long-description></long-description>
+          <tag name="return" line="155" description="" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="163" package="Default">
+        <name>update</name>
+        <full_name>\ling\Model::update()</full_name>
+        <docblock line="163">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="163" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$opt</name>
+          <default>null</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="170" package="Default">
+        <name>insert</name>
+        <full_name>\ling\Model::insert()</full_name>
+        <docblock line="170">
+          <description>adds a new record and fetch result</description>
+          <long-description></long-description>
+          <tag name="return" line="170" description="|| false last insert id." type="int">
+            <type>int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="185" package="Default">
+        <name>delete</name>
+        <full_name>\ling\Model::delete()</full_name>
+        <docblock line="185">
+          <description>Delete an existing record or records that satisfy the conditions.</description>
+          <long-description>if you specified primarykey e.g. $mode-&gt;id ,this will only delete one record.</long-description>
+          <tag name="param" line="185" description="" type="object" variable="$model">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="185" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="185" description="PDOStatement" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$opt</name>
+          <default>null</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="192" package="Default">
+        <name>validate</name>
+        <full_name>\ling\Model::validate()</full_name>
+        <docblock line="192">
+          <description></description>
+          <long-description></long-description>
+          <tag name="todo" line="192" description=""/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="193" package="Default">
+        <name>count</name>
+        <full_name>\ling\Model::count()</full_name>
+        <docblock line="193">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$opt</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="202" package="Default">
+        <name>getBy</name>
+        <full_name>\ling\Model::getBy()</full_name>
+        <docblock line="202">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="202" description="&lt;p&gt;ucwords(strtolower($fieldName));&lt;/p&gt;&#10;" type="string" variable="$k">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="202" description="&lt;p&gt;field value&lt;/p&gt;" type="mixed" variable="$v">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="202" description="find()." type="\ling\see">
+            <type link="see.html">\ling\see</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$v</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="212" package="Default">
+        <name>deleteBy</name>
+        <full_name>\ling\Model::deleteBy()</full_name>
+        <docblock line="212">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="212" description="&lt;p&gt;ucwords(strtolower($fieldName));&lt;/p&gt;&#10;" type="string" variable="$k">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="212" description="&lt;p&gt;field value&lt;/p&gt;" type="mixed" variable="$v">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="212" description="delete()." type="\ling\see">
+            <type link="see.html">\ling\see</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$v</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="222" package="Default">
+        <name>countBy</name>
+        <full_name>\ling\Model::countBy()</full_name>
+        <docblock line="222">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="222" description="&lt;p&gt;ucwords(strtolower($fieldName));&lt;/p&gt;&#10;" type="string" variable="$k">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="222" description="&lt;p&gt;field value&lt;/p&gt;" type="mixed" variable="$v">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="222" description="count()." type="\ling\see">
+            <type link="see.html">\ling\see</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$v</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="232" package="Default">
+        <name>updateBy</name>
+        <full_name>\ling\Model::updateBy()</full_name>
+        <docblock line="232">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="232" description="&lt;p&gt;ucwords(strtolower($fieldName));&lt;/p&gt;&#10;" type="string" variable="$k">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="232" description="&lt;p&gt;field value&lt;/p&gt;" type="mixed" variable="$v">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="232" description="update()." type="\ling\see">
+            <type link="see.html">\ling\see</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$v</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="244" package="Default">
+        <name>__call</name>
+        <full_name>\ling\Model::__call()</full_name>
+        <docblock line="244">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="244" description="&lt;p&gt;ucwords(strtolower($fieldName));&lt;/p&gt;&#10;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="244" description="&lt;p&gt;field value&lt;/p&gt;" type="array" variable="$arguments">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="244" description="getBy(),updateBy(),countBy()" type="\ling\see">
+            <type link="see.html">\ling\see</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$arguments</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <source>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</source>
+  </file>
+  <file path="ModelGenerator.php" generated-path="ModelGenerator.html" hash="7c0fb748c66ef13a58ca4bfd7eb9b9e2" package="Default">
+    <docblock line="0">
+      <description>Class ling\ModelGenerator</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="17" package="Default">
+      <extends/>
+      <name>ModelGenerator</name>
+      <full_name>\ling\ModelGenerator</full_name>
+      <docblock line="17">
+        <description>generate a model as php script content.</description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="public" line="18" namespace="ling" package="Default">
+        <name>$_fields</name>
+        <default>array()</default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="19" namespace="ling" package="Default">
+        <name>$_tableName</name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="20" namespace="ling" package="Default">
+        <name>$_tablePrefix</name>
+        <default></default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="21" namespace="ling" package="Default">
+        <name>$_primaryKey</name>
+        <default></default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" line="22" namespace="ling" package="Default">
+        <name>$_rules</name>
+        <default>array()</default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="23" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\ModelGenerator::__construct()</full_name>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0">
+          <name>$tbn</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$fields</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="52" package="Default">
+        <name>convertCase</name>
+        <full_name>\ling\ModelGenerator::convertCase()</full_name>
+        <docblock line="52">
+          <description>Uppercase the first character of each word in a string</description>
+          <long-description></long-description>
+          <tag name="param" line="52" description="" type="string" variable="$str">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="52" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$str</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="63" package="Default">
+        <name>export</name>
+        <full_name>\ling\ModelGenerator::export()</full_name>
+        <docblock line="63">
+          <description>generate a model as php script content then return.</description>
+          <long-description></long-description>
+          <tag name="param" line="63" description="" type="string" variable="$str">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="63" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="82" package="Default">
+        <name>setTablePrefix</name>
+        <full_name>\ling\ModelGenerator::setTablePrefix()</full_name>
+        <docblock line="82">
+          <description>set the tableprefix.</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="&lt;p&gt;tableprefix&lt;/p&gt;" type="string" variable="$tbp">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="82" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$tbp</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="91" package="Default">
+        <name>getTablePrefix</name>
+        <full_name>\ling\ModelGenerator::getTablePrefix()</full_name>
+        <docblock line="91">
+          <description>get the tableprefix.</description>
+          <long-description></long-description>
+          <tag name="return" line="91" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="100" package="Default">
+        <name>modelName</name>
+        <full_name>\ling\ModelGenerator::modelName()</full_name>
+        <docblock line="100">
+          <description>generate the name of model.</description>
+          <long-description></long-description>
+          <tag name="return" line="100" description="converted name" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJytVs1u20YQPkuA3mFKEBBpKGSaXgrLlJ04ThE0cYNYOdkpQVIraWtyuVguZatGHqiv0Sfr7A8lkpbSHsrDktz54Tez38zw7Jyv+WgYnpyMhnACl3lSVZBTtrr7WC5I/gthRCSyFEqqNS6SWq5LAepKa7aCsz/XgXq4WBUJzYOsLGZGMSv5VtDVWgJc7h7//gtevfzxJ20aGL2cZoRVRDm8Jg/w5uYtfDBbSh7iMhqypCAVTzKisU1Hwx1k7WNlYBJIoFCwIakA44IqE5RLyEomCZNBo48+Mx1oN8an0XDA6xTxgBsvKckXVZQIkWw9f9oWySTNyTUier77SZAlfezsc0GLRGx/JdvOtqhz0nG/rFkmackgjhFvJUWdSc+VKZu4Bouv8A1cuabVi9keRKR0pi1RReR8j8Wzu6vuru8bk+JzH8dgWQqSZGvw7HdVMt17iGbgbnzQIAbkUYoE8aHXuEz/IJmMN4moPNQwTgbhib7dvlM+viprusDct67b+ZYTLUnpijLpvXrpQ80qumKkr3pd57lWvf6tJ8G8asGnz+97krdkmdS51NKe6ErB1wJkcxlTlglSIEM021oXXXoufiCKHHTv+Lvk7880cnWANuZQ5zHmdbVu8m6JNAGjaLNjUhvfKwdGD898Q4S8TCri7VXbYLoOb/cuvnZAuIpZ9kDN6qpE+xP7olK5e8EIds82X7t3naTmONuBGc5gROpLRv5NLWHYQGyRG8lcpJSRfj6sF22urHU5D8As8IVzIjLMBcg1gSUVFVbxOlGcIwLKJWiGPpRiAZRh1WO5YF9oObjgqFzYfXDxDlYgiKwFayR6M9wX5q4KO+eByqb6wrBIYyuKMy0r2OTjm/jy9c1VPH8//3A1GX+Zv3vx89gkxn6tzhTWykNHsszLByKMU38KB+P/bw1NJYeB+UTwfwZPHnkppGc7TiUTISPnTI2KO3HHTO90AnuiGqDqRJ4fOGiKyBbtGfKkbBzTblAUOer9m1rOZ3abixLPW9JeJ3JVT4EIel0GDJf63UqLDvQq5T0aN413HLj3wRidjgM0iG2k7maCDZdgANM9Wuiwfo8RmY8vLeK3ZDdSRLTgOQbuOY7RtKIOIdo6tt50middXxOVMf9IkWCj1+WhRwHXff07LJApb2t2CbEp6eI4HZ5NlJQfGEZGqsYRP4x39S94u+Q8Dqc/yp5aeSUFl1vvAC4fzuE15+goUU5OT92WEE7hgMmxKGxpqlDUf4lqR7oGvhOMbRlkoS2ORtYqJZvflEdHBrhmEw6oH5qQ8VD8hvHIJCzDyAl/V2Wa8sAJHTseChZh7lexIDzHHyqvUZ4gFZ/9XPjTgWY5ySvytLN/prYvBRv2oaFWsIbHoyEu57N/ADTSGcI=</source>
+  </file>
+  <file path="QueryBuilder.php" generated-path="QueryBuilder.html" hash="b6ce8786f5bc6b95e6e850523c2c325a" package="Default">
+    <docblock line="0">
+      <description>Class ling\QueryBuilder</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="17" package="Default">
+      <extends/>
+      <name>QueryBuilder</name>
+      <full_name>\ling\QueryBuilder</full_name>
+      <docblock line="17">
+        <description>generate a sql query string.</description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="public" line="22" namespace="ling" package="Default">
+        <name>$query</name>
+        <default></default>
+        <docblock line="22">
+          <description>the query string</description>
+          <long-description></long-description>
+          <tag name="var" line="22" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="30" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\QueryBuilder::__construct()</full_name>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="30" description="&lt;p&gt;&amp;$model&lt;/p&gt;&#10;" type="array" variable="">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="30" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="30" description="" type="array" variable="$struct">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="30" description="&lt;p&gt;keys not allowed in $opt&lt;/p&gt;&#10;" type="array" variable="$filter">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$opt</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$struct</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$filter</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="39" package="Default">
+        <name>getQuery</name>
+        <full_name>\ling\QueryBuilder::getQuery()</full_name>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="39" description="$this-&gt;query" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="48" package="Default">
+        <name>buildStruct</name>
+        <full_name>\ling\QueryBuilder::buildStruct()</full_name>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="48" description="&lt;p&gt;&amp;$model&lt;/p&gt;&#10;" type="array" variable="">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="48" description="" type="array" variable="$struct">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="48" description="&lt;p&gt;filtered $opt&lt;/p&gt;&#10;" type="array" variable="$filteredOpt">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="48" description="$fullstruct full struct of query" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$model</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$struct</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$filteredOpt</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="80" package="Default">
+        <name>build</name>
+        <full_name>\ling\QueryBuilder::build()</full_name>
+        <docblock line="80">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="80" description="&lt;p&gt;full struct of query&lt;/p&gt;" type="array" variable="$fullstruct">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="80" description="final query string" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$fullstruct</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="105" package="Default">
+        <name>optionFilter</name>
+        <full_name>\ling\QueryBuilder::optionFilter()</full_name>
+        <docblock line="105">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="105" description="" type="array" variable="$opt">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="105" description="&lt;p&gt;keys not allowed in $opt&lt;/p&gt;&#10;" type="array" variable="$filter">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="105" description="" type="array" variable="$struct">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="105" description="filtered $opt || $struct" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$opt</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$filters</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0">
+          <name>$struct</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="123" package="Default">
+        <name>kvmapper</name>
+        <full_name>\ling\QueryBuilder::kvmapper()</full_name>
+        <docblock line="123">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="123" description="&lt;p&gt;field name&lt;/p&gt;" type="string" variable="$k">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="123" description="&quot;$fieldName=:$fieldName&quot;" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="131" package="Default">
+        <name>vmapper</name>
+        <full_name>\ling\QueryBuilder::vmapper()</full_name>
+        <docblock line="131">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="131" description="&lt;p&gt;field value&lt;/p&gt;" type="string" variable="$k">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="131" description="&quot;:$fieldName&quot;" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$k</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="140" package="Default">
+        <name>generateKV</name>
+        <full_name>\ling\QueryBuilder::generateKV()</full_name>
+        <docblock line="140">
+          <description>generate key-value pairs for adding new recored use.</description>
+          <long-description></long-description>
+          <tag name="param" line="140" description="" type="array" variable="$vars">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="140" description="&lt;p&gt;primarykey name&lt;/p&gt;" type="string" variable="$pkn">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="140" description="&quot;($fieldName1,$fieldName2,...) VALUES($fieldValue1,$fieldValue2,...)&quot;" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$vars</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0">
+          <name>$pkn</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJytV0tv20YQPtOA/8NUIEzSoOUmvcWh7bx6SeCicOuLawgraSURpEiGDxmqEyDoC+kpl14cBEUOaYEGqNtDDwba9NDfYsXJv+jsS1xKlOpDBcNe7c7jm5lvZ9Y3d5JBsrqyub6+ugLrcCckWQahH/W/+LSg6fh24YddmrIzfr5LinwQp8A+7SLqw80vB0222O0PiR82O/FwWwh24mSc+v1BDnBnuvznF7j+4bWPuGpTyIV+h0YZZQb36DHc3r8LD8QWO9/EX6srERnSLCEdypFtra5MAXMbfRrRlOQUCGQPQ3jIgEOWp750Ig11eGx6WCerK4YwxD7rkA9oRXt6sDsi6cweGjSSoo3wweQ6W8qYAeIX7CYkJUMgaUrGsGYO4y4NoebIjJO8dh89Fp36o54f5jSFgI4ziOIcSBjGx7QLfqSZ0zD2iqiT+3EErVYnjoRhW2JymYbHDduOK7260oXDkmTIL7T7CUqa+cDPNrZRCQ1+zA9sZkKpKBPOllAtwlBsKM02S/++wKAgVL1yR1Jf6PAcVwzYmmUu+ni+AinNizSSpQPd1MIE9WnOOWKLyKUFXXXW19UL/Z8F5XGDWleYIYEo8WnowJYg13EPlkenp35tWe5F2ZMg8oTUxnYrSf0hScf36XhLHnrgZxlVRdzYxmuSHTKlIwd2YH4XboBlcWW/Z39Ah0k+tvHAcU5YlFWaHVrHA1xaR6rowWhIkoRxDU0JbqAZsCUEEcShldGQdnLryHGAx2AYm5uTn796++MLcfLut18nz366OP/z/Q9nb198P3ny1+Tp6eT373S0787+vnxzNnn2GgWE5MX5k4vz15Nvv77846WwqsuDJ+rCoYG3DfgXJETGFOMxDTN6Mgu5Em0wYpglZEwPzMTlY0tMc7zgeawJGvNGVL5UW7x/UKmPq6VP4KpJYpF0UVNPIsZLEhVnC9e2jJg5cy1VHMtxpQhrTRXHjnJqmCMSZp4/TEI8tS3Xcpnx8ng+pMb+vc+g0eSKCrrIbpnY/xGhyalXIoRbe3ehinIBVflCL/xs9zy08nbYYhONiaurlZN2SPdwc65lymho2qf24iapulSpuLxJXal/zLbPnh+RcGZALmszlQYtatSLU0o6A9CPgGRgBvzWjBTdkP9+1mrHcWjj5pSEuG2OPM/rIQ2oI+lSROIyTQ0emsGRKhOjx5RWFQkPl3lciI4SOFuGMUcorUkhsrU1vHwtyalAkshW/caVHHCtOMWnBbTHuAz9oZ9bjuMozixD0GxwhkvgJYV4A3v68v3pq8mr5xdvTi+ff6P1IcQ4hejA0lxM+SjLait+o2NXp4SzaJxe6dVypadJ7WCsm3TVWfjoUUW2jnoLnyXZ9F1yMjOBUAgbqjHDUOavhppcsUIEZXaGkKivZ59RuqIlUS1XUxcbd+vHiRIobz0XWVg89RQKMLM07ALrRLW3vWFyAdaUvBvlurEw8eV8DipPJ7thBmghaCxn1SwwbPXFAmRXgrMQTS2U8p8I5O0G9w0J8XG0IyGAdLvMcYT/oKS0EzM6Fhlt1jGZzZHauNjLQL6g0MWSvNtldNfccn3dbTabDhzcevD5vX0pc8BwKiH+RUgtzor+KJi+BrwIr766FaA9zKKypWhPO0FEk13wyhDXp6o+ToUkxsX+Og25uXRYL5jVFau8SMxuozn3lGg2lB91P5gB7LAifeIlgdqSBvizs/0v1aqUoQ==</source>
+  </file>
+  <file path="Router.php" generated-path="Router.html" hash="32d4e60f42683ac37c0fe460b8f16181" package="Default">
+    <docblock line="0">
+      <description>Class ling\Router</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="bung" link="mailto:zh.bung@gmail.com"/>
+      <tag name="copyright" line="0" description="Copyright © 2013 bung."/>
+      <tag name="license" line="0" description="New BSD License" link="http://opensource.org/licenses/BSD-3-Clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="ling" line="17" package="Default">
+      <extends/>
+      <name>Router</name>
+      <full_name>\ling\Router</full_name>
+      <docblock line="17">
+        <description>Router class</description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="public" line="22" namespace="ling" package="Default">
+        <name>$request_uri</name>
+        <default></default>
+        <docblock line="22">
+          <description>$_SERVER['REQUEST_URI']</description>
+          <long-description></long-description>
+          <tag name="var" line="22" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="26" package="Default">
+        <name>__construct</name>
+        <full_name>\ling\Router::__construct()</full_name>
+        <docblock line="26">
+          <description>assign $_SERVER['REQUEST_URI'] value to $this-&gt;request_uri</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="36" package="Default">
+        <name>getRoute</name>
+        <full_name>\ling\Router::getRoute()</full_name>
+        <docblock line="36">
+          <description>retrieve request uri,return uri that directory name part removed</description>
+          <long-description></long-description>
+          <tag name="return" line="36" description="$query" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ling" line="61" package="Default">
+        <name>to</name>
+        <full_name>\ling\Router::to()</full_name>
+        <docblock line="61">
+          <description>route to controller.</description>
+          <long-description></long-description>
+          <tag name="return" line="61" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJyNVtty4kYQfRZV/EObUkXgYGQn+5CyV9heL5u4yrEdjPPiuFSDGMHUCkkZjbDJlj8ov5EvS89FFwRsmQcQM92nu8+c7tHH83SRtlvu4WG7BYdwFZEsg4jF87/GSS4ol6tq54LkYpFwkJ9pHs/h4z+LgXy4mC8JiwZBshxqwyBJ15zNFwLgqnz871/46fjkZ+U60HYRC2icUQl4S1/g08NnuNFLct9tt9qtmCxplpKAqpTO5JLJVEHoFCGQSReL6Kf+F5vf2i1L+8jPIdj+w2j852j85IxHfzyOHib+4/jaeS73L1aEQyY4xivWENJK8ynmCzanf+c0E37O2VmBbKEbRmTzeB86rEiUUxAJ2GLBsqNhDUb5yxBhHgeCJTH4fpDEmEIeiG7vmyzasrb9vD2xZFpvtdR0fpxiSXRFwSAAIvRxMeexfASxIAJmjNNAJHwNknhICRdov0xWdFaDujBumiSwEY+vt6uYU6GOQJVgWSzshiTK6IHnoWOaZN3tkvrOudPT5pad5pw+8sjL8ik67LI+7u9HAgUlubDeKIZtgG57aFP5pehWRXmdjlq2U0YDmnn0NY2SGe123E4fLu/vb66vLifXd7f++O5uooOFCackWEDX+KAwwP4K3hDsVQ90FpILe3WA6KZWGSHJSl5Mkn10AY1qfHAX6VM0QulqcgUPCqYqf3T4EZciGmPAXon1pn/1j/o2R6qh9ihIHqaUMIpT8CSKKB/sUMUqYbNtMYjEyMBWMAX/lUbOjEYKDpQZnqLr9IqSS2FsH0ZRufE66RneVG12yHgmPMI5WfvZgoWiOJwyqjHxHBbP6OsAR6LT08GqYm+xJfaDSI3t9NDQWkY4WjI8JwWiSjbhD+gyFetuw9V0QhNwOZXjYUW58AOS0aZXH37/5F9dPoz8yfXkZtSHzuPky9EvHZ2mvaQ4xWffr+VlwSKKCv5K19lOq1LIMvkg55zG9U1V55Nyf/aa22e6wczZ1HuzUedlmuLEJVI+p6colM80JHkkrkorZFBD1YvSJ+jUTj8IvWarDhy3Cpa5zqARe9CREugU6giRDp++skygMIOwmFAsDqJ8RgGXmnMGYEHJDFN0fptM7t2TwQl8OP4At4mAL0kezxxJtLxbaqadTBCRZ6eblp26JWASoirNdaFWOgqr0FG12IPzDZvT+j+vo8gyM66iAJFivJAbpJSCdQ9ZuAEaY7IqMoRonbzgZUJxQvEcVTSluKB53PDRj6BZhYBEEbDiAorWxkGlt9O0vkHiGeQYD6NuhMDJq3pP3mNkKWeVlaANf2EyOT2tkGs1qOpdWGOvuH3ltglXCaFkpw9NHzWW1WuIr3dk26OG/Y21rqNetCpFO8WExnAs9vWcqGFjoA2AMpallAFdJyCxPo5XGshxvS1t5xTXKsiBU5I+KMPri0HfDpWoZVbf4cB0XpWTTfjcq4Uqbp997WqZCfnkpJwtCV87z57EKDZNbrWE3tVm1vv7rDQt+6zgAqC6K2sZvDv8e2NvNniN36Nh817Z/N/s4aNhjeXmIWzYqe4o5vyS8jleKfIY+rb/68i81ahH74cdfmeuW75aKit81eWMTCOabUWaUvl2ZO76jZ1agru2SSjUuC/ezvT7Sbulvs6H/wM7ILic</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="global" full_name="global"/>
+  <namespace name="ling" full_name="ling"/>
+  <deprecated count="0"/>
+</project>

@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » \ling\DB</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">17</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___call" title="__call() :: Interacting with methods that have not been declared or are not visible in the current scope"><span class="description">Interacting with methods that have not been declared or are not visible in the current scope</span><pre>__call()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_bindParams" title="bindParams() :: Binds a PHP variable to a corresponding named omark placeholder in the SQL statement."><span class="description">Binds a PHP variable to a corresponding named omark placeholder in the SQL statement.</span><pre>bindParams()</pre></a></li>
+<li class="method public "><a href="#method_count" title="count() :: Count number of records that satisfy the conditions."><span class="description">Count number of records that satisfy the conditions.</span><pre>count()</pre></a></li>
+<li class="method public "><a href="#method_dataType" title="dataType() :: Detecte data type for the parameter using the PDO::PARAM_* constants."><span class="description">Detecte data type for the parameter using the PDO::PARAM_* constants.</span><pre>dataType()</pre></a></li>
+<li class="method public "><a href="#method_delete" title="delete() :: Delete an existing record or records that satisfy the conditions."><span class="description">Delete an existing record or records that satisfy the conditions.</span><pre>delete()</pre></a></li>
+<li class="method public "><a href="#method_find" title="find() :: Find an existing record or records that satisfy the conditions."><span class="description">Find an existing record or records that satisfy the conditions.</span><pre>find()</pre></a></li>
+<li class="method public "><a href="#method_insert" title="insert() :: Adds a new record."><span class="description">Adds a new record.</span><pre>insert()</pre></a></li>
+<li class="method public "><a href="#method_pbe" title="pbe() :: builds sql,prepares,bind each params to PDO statement and execute."><span class="description">builds sql,prepares,bind each params to PDO statement and execute.</span><pre>pbe()</pre></a></li>
+<li class="method public "><a href="#method_update" title="update() :: Update an existing record or records that satisfy the conditions."><span class="description">Update an existing record or records that satisfy the conditions.</span><pre>update()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public "><a href="#property_conf" title="$conf() :: "><span class="description"></span><pre>$conf</pre></a></li>
+<li class="property public "><a href="#property_pdo" title="$pdo() :: "><span class="description"></span><pre>$pdo</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\ling\DB"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/ling.html">ling</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ling.DB.html">DB</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description"></p>
+<div class="details">
+<div class="long_description"></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___call"></a><div class="element clickable method public method___call" data-toggle="collapse" data-target=".method___call .collapse">
+<h2>Interacting with methods that have not been declared or are not visible in the current scope</h2>
+<pre>__call(string $name, array $arguments) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>method name of PDO</p></div>
+<div class="subelement argument">
+<h4>$arguments</h4>
+<code>array</code><p>arguments apply to $this->pdo .</p>
+</div>
+</div></div>
+</div>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct($conf) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$conf</h4></div>
+</div></div>
+</div>
+<a id="method_bindParams"></a><div class="element clickable method public method_bindParams" data-toggle="collapse" data-target=".method_bindParams .collapse">
+<h2>Binds a PHP variable to a corresponding named omark placeholder in the SQL statement.</h2>
+<pre>bindParams($v, $k, $smt) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$v</h4></div>
+<div class="subelement argument"><h4>$k</h4></div>
+<div class="subelement argument"><h4>$smt</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>$type</div>
+</div></div>
+</div>
+<a id="method_count"></a><div class="element clickable method public method_count" data-toggle="collapse" data-target=".method_count .collapse">
+<h2>Count number of records that satisfy the conditions.</h2>
+<pre>count(object $model, array $opt) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$opt</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>PDOStatement</div>
+</div></div>
+</div>
+<a id="method_dataType"></a><div class="element clickable method public method_dataType" data-toggle="collapse" data-target=".method_dataType .collapse">
+<h2>Detecte data type for the parameter using the PDO::PARAM_* constants.</h2>
+<pre>dataType(string $value) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>$type</div>
+</div></div>
+</div>
+<a id="method_delete"></a><div class="element clickable method public method_delete" data-toggle="collapse" data-target=".method_delete .collapse">
+<h2>Delete an existing record or records that satisfy the conditions.</h2>
+<pre>delete(object $model, array $opt) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">if you specified primarykey eg. $mode->id ,this will only delete one record.</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$opt</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>PDOStatement</div>
+</div></div>
+</div>
+<a id="method_find"></a><div class="element clickable method public method_find" data-toggle="collapse" data-target=".method_find .collapse">
+<h2>Find an existing record or records that satisfy the conditions.</h2>
+<pre>find(object $model, array $opt) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">if you specified primarykey eg. $mode->id ,this will only return one record as object</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$opt</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>PDOStatement</div>
+</div></div>
+</div>
+<a id="method_insert"></a><div class="element clickable method public method_insert" data-toggle="collapse" data-target=".method_insert .collapse">
+<h2>Adds a new record.</h2>
+<pre>insert(object $model) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>PDOStatement</div>
+</div></div>
+</div>
+<a id="method_pbe"></a><div class="element clickable method public method_pbe" data-toggle="collapse" data-target=".method_pbe .collapse">
+<h2>builds sql,prepares,bind each params to PDO statement and execute.</h2>
+<pre>pbe(object $model, array $opt, array $struct, $filter) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">builds sql statement based on $model,$opt,$struct and $filter,prepares the sql statement,
+bind each model's params to PDO statment and execute.</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$opt</h4>
+<code>array</code>
+</div>
+<div class="subelement argument">
+<h4>$struct</h4>
+<code>array</code><p>sql statement struct</p></div>
+<div class="subelement argument"><h4>$filter</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>PDOStatement</div>
+</div></div>
+</div>
+<a id="method_update"></a><div class="element clickable method public method_update" data-toggle="collapse" data-target=".method_update .collapse">
+<h2>Update an existing record or records that satisfy the conditions.</h2>
+<pre>update(object $model, array $opt) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">if you specified primarykey eg. $mode->id ,this will only update one record.</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$model</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$opt</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>PDOStatement</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_conf"> </a><div class="element clickable property public property_conf" data-toggle="collapse" data-target=".property_conf .collapse">
+<h2>$conf</h2>
+<pre>$conf </pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_pdo"> </a><div class="element clickable property public property_pdo" data-toggle="collapse" data-target=".property_pdo .collapse">
+<h2>$pdo</h2>
+<pre>$pdo </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.1.0
+</a> and<br>
+            generated on 2013-10-31T14:38:37+08:00.<br></footer></div>
+</div>
+</body>
+</html>
