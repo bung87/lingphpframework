@@ -48,4 +48,5 @@ lingphpframework
     	public function after(){
 	 // log
 	 }
+	 }
 	 ?>
