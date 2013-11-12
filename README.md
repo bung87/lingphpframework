@@ -17,34 +17,35 @@ lingphpframework
 
 ##Code
 一个通常的入口文件：
+
     <?php
-namespace ling;
-$dbconf = include "./db.conf.php";
-include "./lingframework/Application.php";
-define('APPLICATION_ROOT', str_replace('\\', '/', __DIR__));
-$app=new Application();
-$app::setDB($dbconf);
-$app::setDefaultController("Aa");
-$app->run();
-//echo  $_SERVER['REQUEST_URI'];
-?>
+	namespace ling;
+	$dbconf = include "./db.conf.php";
+	include "./lingframework/Application.php";
+	define('APPLICATION_ROOT', str_replace('\\', '/', __DIR__));
+	$app=new Application();
+	$app::setDB($dbconf);
+	$app::setDefaultController("Aa");
+	$app->run();
+
+	?>
 
 一个通常的Controller:
-"""http://localhost/helloworld/getkey/getvalue/
+	http://localhost/helloworld/getkey/getvalue/
 
     <?php
-class Helloworld extends ling\Controller{
+	class Helloworld extends ling\Controller{
 	public $params=array();
-    public function index(){
+    	public function index(){
     	var_dump($this->controllerName);
     	var_dump($this->methodName);
     	 var_dump($this->params);
     	$this->redirect('myframework/aa/cc');
-    }
-    public function before(){
-    // UAC
-    }
-    public function after(){
-   // log
-    }
-    ?>
+	 }
+    	public function before(){
+    	// UAC
+    	}
+    	public function after(){
+	 // log
+	 }
+	 ?>
