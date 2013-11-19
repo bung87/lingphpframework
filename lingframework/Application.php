@@ -51,9 +51,12 @@ class Application{
 	 *
 	 */
 	function __construct(){
+		// $caller = debug_backtrace()[0]['file'];
+		define('APPLICATION_ROOT', str_replace('\\', '/', dirname($_SERVER['SCRIPT_FILENAME'])));
 		self::$modelsName=require_once(APPLICATION_ROOT."/models.php");
 		spl_autoload_extensions(".php");
 		spl_autoload_register(__CLASS__."::load");
+
 	}
 	/**
 	 * 

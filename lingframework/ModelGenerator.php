@@ -1,19 +1,5 @@
 <?php
-/**
- * Class ling\ModelGenerator
- *
- * @author     bung <zh.bung@gmail.com>
- * @copyright  Copyright © 2013 bung.
- * @license    New BSD License
- */
- 
 namespace ling;
-
-/**
- *
- * generate a model as php script content.
- *
- */
 class ModelGenerator{
 	public $_fields=array();
 	public $_tableName;
@@ -37,9 +23,10 @@ class ModelGenerator{
 			//array_push($this->_fields, $Field);
 			$field_key=$this->convertCase($Field);
             $this->_fields[$field_key]=$Field;
-			$rule=array(array($Type),array($Null),array($Key),array($Default),array($Extra));
+			$rule=array('type'=>$Type,'null'=>$Null,'key'=>$Key,'default'=>$Default,'extra'=>$Extra);
 			array_push($mRules, $rule);
 		}
+		var_dump($mRules);exit;
 		//$this->_rules=array_combine($this->_fields,$mRules);
 	}
 	/**
@@ -55,7 +42,7 @@ class ModelGenerator{
 	}
 	/**
 	 *
-	 * generate a model as php script content then return.
+	 * generate a model as php script content.
 	 *
 	 * @param string $str 
 	 * @return string 
