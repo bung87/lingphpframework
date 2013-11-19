@@ -22,7 +22,7 @@ lingphpframework
 	namespace ling;
 	$dbconf = include "./db.conf.php";
 	include "./lingframework/Application.php";
-	define('APPLICATION_ROOT', str_replace('\\', '/', __DIR__));
+	
 	$app=new Application();
 	$app::setDB($dbconf);
 	$app::setDefaultController("Aa");
